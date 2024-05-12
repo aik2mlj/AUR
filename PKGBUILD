@@ -1,16 +1,16 @@
 # Maintainer:  <lohjingyen at gmail dot com>
 
 pkgname=canvas-downloader-bin
-pkgver=0.1.7
+pkgver=0.2.2
 pkgrel=1
 pkgdesc='Downloads files from all courses in canvas.'
 depends=('gcc-libs' 'openssl')
 arch=('x86_64')
-url='https://github.com/k-walter/canvas-downloader'
+url='https://github.com/bnjmnt4n/canvas-downloader'
 #license=('')
-source=("https://github.com/k-walter/canvas-downloader/releases/download/v$pkgver/canvas-downloader-x86_64-unknown-linux-gnu-v$pkgver")
-sha256sums=('2ac006e4f7c2b05d559b7cba970793551a5324676cef94c74eb6828a4a6c6849')
+source=("https://github.com/bnjmnt4n/canvas-downloader/releases/download/v$pkgver/canvas-downloader-x86_64-unknown-linux-gnu-v$pkgver")
+sha256sums=('ac72a1349badf4ff3adbef7096e1ad79bce8ccbe28f251f84cbef63205cd8347')
 
 package() {
-  install -D -m755 canvas-downloader-x86_64-unknown-linux-gnu-v$pkgver "$pkgdir/usr/bin/canvas-downloader"
+	install -D -m755 canvas-downloader-x86_64-unknown-linux-gnu-v$pkgver "$pkgdir/usr/bin/canvas-downloader"
 }
