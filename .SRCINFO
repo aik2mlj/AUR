@@ -1,7 +1,7 @@
 pkgbase = plugdata-bin
 	pkgdesc = Plugin wrapper around Pure Data with a new JUCE GUI, allowing patching in DAWs
 	pkgver = 0.8.3
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/plugdata-team/plugdata
 	arch = x86_64
 	arch = aarch64

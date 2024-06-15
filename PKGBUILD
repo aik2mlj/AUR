@@ -4,7 +4,7 @@ pkgname='plugdata-bin'
 _name='plugdata'
 pkgdesc='Plugin wrapper around Pure Data with a new JUCE GUI, allowing patching in DAWs'
 pkgver=0.8.3
-pkgrel=1
+pkgrel=2
 groups=('lv2-plugins' 'vst3-plugins' 'clap-plugins' 'pro-audio')
 depends=('freetype2' 'libx11' 'libxrandr' 'libxext' 'libxinerama' 'webkit2gtk' 'libxrender' 'libxinerama' 'libxcursor' 'alsa-lib' 'curl')
 makedepends=()
@@ -28,6 +28,6 @@ package () {
     mkdir -p "${pkgdir}/usr/lib/vst3/"
     find . -name '*.vst3' -type d -exec cp -ar {} "${pkgdir}/usr/lib/vst3/" \;
     mkdir -p "${pkgdir}/usr/lib/clap/"
-    find . -name '*.clap' -type d -exec cp -ar {} "${pkgdir}/usr/lib/clap/" \;
+    find . -name '*.clap' -type f -exec cp -ar {} "${pkgdir}/usr/lib/clap/" \;
     install -Dm755 -T ./plugdata/Standalone/* "${pkgdir}/usr/bin/${_name}"
 }
