@@ -14,8 +14,12 @@ replaces=('plugdata-bin')
 arch=('x86_64' 'aarch64')
 url='https://github.com/timothyschoen/PlugData'
 license=('GPL3')
-source=("git+https://github.com/timothyschoen/PlugData/")
-sha512sums=('SKIP')
+source=("git+https://github.com/plugdata-team/plugdata/"
+    "${_name}.desktop"
+    "${_name}.png")
+sha512sums=('SKIP'
+    '1a64e0abbc5e2e9417bf3e2d7f0186b8137a92cebf2123adff550dba53468588c46200f5f40056fad745d583282e1bdd903da14dc064846f91309dc570bc25e3'
+    '6ed1228803ea10d51e793f6c8f008b87465314a1f6484121745e42f84fe7b443a8319fcdba862b17af2a1a8b04b7275c0d69eb7a07d0841676f671d25e0790b4')
 
 pkgver() {
     cd "${srcdir}/PlugData"
@@ -27,17 +31,17 @@ prepare() {
     git submodule update --init --recursive --depth=1
 }
 
-build () {
+build() {
     cd "${srcdir}/PlugData"
     mkdir -p build && cd build
     cmake -DCMAKE_BUILD_TYPE=Release -G"Unix Makefiles" ..
     cmake --build .
 }
 
-package () {
+package() {
     # Desktop entry & pixmaps
-    install -Dm644 "${srcdir}/../${_name}.desktop" "${pkgdir}/usr/share/applications/${_name}.desktop"
-    install -Dm644 "${srcdir}/../${_name}.png" "${pkgdir}/usr/share/pixmaps/${_name}.png"
+    install -Dm644 "${_name}.desktop" "${pkgdir}/usr/share/applications/${_name}.desktop"
+    install -Dm644 "${_name}.png" "${pkgdir}/usr/share/pixmaps/${_name}.png"
 
     cd "${srcdir}/PlugData"
 
