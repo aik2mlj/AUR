@@ -3,7 +3,7 @@
 pkgname='plugdata-git'
 _name='plugdata'
 pkgdesc='Plugin wrapper around PureData with a new GUI made with JUCE, allowing patching in DAWs'
-pkgver=r6678.b68684f38
+pkgver=r8229.85d73a8cd
 pkgrel=1
 groups=('vst-plugins' 'lv2-plugins' 'vst3-plugins' 'pro-audio')
 depends=('freetype2' 'libx11' 'libxrandr' 'libxext' 'libxinerama' 'webkit2gtk' 'libxrender' 'libxinerama' 'libxcursor' 'alsa-lib' 'curl')
@@ -12,7 +12,7 @@ optdepends=()
 conflicts=('plugdata-bin')
 replaces=('plugdata-bin')
 arch=('x86_64' 'aarch64')
-url='https://github.com/timothyschoen/PlugData'
+url='https://github.com/plugdata-team/plugdata/'
 license=('GPL3')
 source=("git+https://github.com/plugdata-team/plugdata/"
     "${_name}.desktop"
@@ -22,17 +22,17 @@ sha512sums=('SKIP'
     '6ed1228803ea10d51e793f6c8f008b87465314a1f6484121745e42f84fe7b443a8319fcdba862b17af2a1a8b04b7275c0d69eb7a07d0841676f671d25e0790b4')
 
 pkgver() {
-    cd "${srcdir}/PlugData"
+    cd "${srcdir}/${_name}"
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-    cd "${srcdir}/PlugData"
+    cd "${srcdir}/${_name}"
     git submodule update --init --recursive --depth=1
 }
 
 build() {
-    cd "${srcdir}/PlugData"
+    cd "${srcdir}/${_name}"
     mkdir -p build && cd build
     cmake -DCMAKE_BUILD_TYPE=Release -G"Unix Makefiles" ..
     cmake --build .
@@ -43,7 +43,7 @@ package() {
     install -Dm644 "${_name}.desktop" "${pkgdir}/usr/share/applications/${_name}.desktop"
     install -Dm644 "${_name}.png" "${pkgdir}/usr/share/pixmaps/${_name}.png"
 
-    cd "${srcdir}/PlugData"
+    cd "${srcdir}/${_name}"
 
     # === modified from .github/scripts/package.sh ===
     # rm -rf Packaged

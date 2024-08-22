@@ -1,8 +1,8 @@
 pkgbase = plugdata-git
 	pkgdesc = Plugin wrapper around PureData with a new GUI made with JUCE, allowing patching in DAWs
-	pkgver = r6678.b68684f38
+	pkgver = r8229.85d73a8cd
 	pkgrel = 1
-	url = https://github.com/timothyschoen/PlugData
+	url = https://github.com/plugdata-team/plugdata/
 	arch = x86_64
 	arch = aarch64
 	groups = vst-plugins
