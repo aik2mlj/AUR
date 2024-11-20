@@ -1,4 +1,5 @@
-# Maintainer: spider-mario <spidermario@free.fr>
+# Maintainer: aik2 <aik2mlj@gmail.com>
+# Contributor: spider-mario <spidermario@free.fr>
 pkgname=mini-audicle
 pkgver=1.5.4.0
 pkgrel=1
