@@ -1,0 +1,17 @@
+pkgbase = chuck-git
+	pkgdesc = Concurrent, on-the-fly audio programming language
+	pkgver = r2542.01efb5a1
+	pkgrel = 1
+	url = https://chuck.stanford.edu/
+	arch = x86_64
+	groups = pro-audio
+	license = GPL
+	makedepends = git
+	depends = jack
+	depends = libsndfile
+	conflicts = chuck
+	replaces = chuck
+	source = chuck::git+https://github.com/ccrma/chuck.git
+	sha256sums = SKIP
+
+pkgname = chuck-git
