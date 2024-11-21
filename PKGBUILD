@@ -12,9 +12,8 @@ depends=(jack libsndfile)
 groups=(pro-audio)
 makedepends=(git)
 source=("$_name::git+https://github.com/ccrma/chuck.git")
-provides=(chuck)
-conflicts=(chuck)
-replaces=(chuck)
+provides=($_name)
+conflicts=($_name)
 sha256sums=('SKIP')
 
 pkgver() {
