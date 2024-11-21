@@ -11,7 +11,6 @@ pkgbase = chugl-git
 	depends = chuck
 	provides = chugl
 	conflicts = chugl
-	replaces = chugl
 	source = chugl::git+https://github.com/ccrma/chugl.git
 	sha256sums = SKIP
 

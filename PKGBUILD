@@ -14,7 +14,6 @@ makedepends=(git)
 source=("$_name::git+https://github.com/ccrma/chugl.git")
 provides=($_name)
 conflicts=($_name)
-replaces=($_name)
 sha256sums=("SKIP")
 
 pkgver() {
