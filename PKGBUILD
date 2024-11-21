@@ -3,7 +3,7 @@
 pkgname=chuck-git
 _name=chuck
 pkgdesc='Concurrent, on-the-fly audio programming language'
-pkgver=r2542.01efb5a1
+pkgver=1.5.4.1.r24.g01efb5a1
 pkgrel=1
 arch=(x86_64)
 url='https://chuck.stanford.edu/'
@@ -18,7 +18,8 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd $_name
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git describe --long --tags | sed "s/\([^-]*-g\)/r\1/;s/-/./g" | sed "s/chuck.//g"
 }
 
 build() {
