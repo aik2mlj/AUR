@@ -10,10 +10,11 @@ url='https://chuck.stanford.edu/'
 license=('GPL-2.0-or-later OR MIT')
 depends=(jack libsndfile)
 groups=(pro-audio)
-makedepends=('git')
+makedepends=(git)
 source=("$_name::git+https://github.com/ccrma/chuck.git")
-conflicts=('chuck')
-replaces=('chuck')
+provides=(chuck)
+conflicts=(chuck)
+replaces=(chuck)
 sha256sums=('SKIP')
 
 pkgver() {

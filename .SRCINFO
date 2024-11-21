@@ -9,6 +9,7 @@ pkgbase = chuck-git
 	makedepends = git
 	depends = jack
 	depends = libsndfile
+	provides = chuck
 	conflicts = chuck
 	replaces = chuck
 	source = chuck::git+https://github.com/ccrma/chuck.git
