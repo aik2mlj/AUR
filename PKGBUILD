@@ -3,7 +3,7 @@
 pkgname='plugdata-git'
 _name='plugdata'
 pkgdesc='Plugin wrapper around Pure Data with a new JUCE GUI, allowing patching in DAWs'
-pkgver=r8921.2787bd825
+pkgver=r8921.2787bd8
 pkgrel=1
 groups=('vst-plugins' 'lv2-plugins' 'vst3-plugins' 'pro-audio')
 depends=('freetype2' 'libx11' 'libxrandr' 'libxext' 'libxinerama' 'webkit2gtk' 'libxrender' 'libxinerama' 'libxcursor' 'alsa-lib' 'curl')
@@ -23,7 +23,7 @@ sha512sums=('SKIP'
 
 pkgver() {
   cd "${srcdir}/${_name}"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
 }
 
 prepare() {
