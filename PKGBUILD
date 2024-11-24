@@ -1,4 +1,4 @@
-# Maintainer: aik2 aik2mlj@gmail.com
+# Maintainer: aik2 <aik2mlj@gmail.com>
 
 pkgname='plugdata-bin'
 _name='plugdata'
@@ -9,9 +9,9 @@ groups=('lv2-plugins' 'vst3-plugins' 'clap-plugins' 'pro-audio')
 depends=('freetype2' 'libx11' 'libxrandr' 'libxext' 'libxinerama' 'webkit2gtk' 'libxrender' 'libxinerama' 'libxcursor' 'alsa-lib' 'curl')
 makedepends=()
 optdepends=()
-conflicts=('plugdata-git')
-replaces=('plugdata-git')
-arch=('x86_64' 'aarch64')
+provides=($_name)
+conflicts=($_name)
+arch=('x86_64')
 url='https://github.com/plugdata-team/plugdata'
 license=('GPL3')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/plugdata-team/plugdata/releases/download/v${pkgver}/plugdata-Arch-x64.tar.gz"
