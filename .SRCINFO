@@ -1,6 +1,6 @@
 pkgbase = chuck-git
 	pkgdesc = Concurrent, on-the-fly audio programming language
-	pkgver = 1.5.4.1.r24.g01efb5a1
+	pkgver = 1.5.4.2.r1.gb800b05
 	pkgrel = 1
 	url = https://chuck.stanford.edu/
 	arch = x86_64
