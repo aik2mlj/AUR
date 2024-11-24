@@ -3,7 +3,7 @@
 pkgname=chugl-git
 _name=chugl
 pkgdesc="ChuGL => ChucK Graphics Library"
-pkgver=v0.2.2.r61.g14c228e
+pkgver=0.2.4.r0.g6c8e36e
 pkgrel=1
 arch=(x86_64)
 url="https://chuck.stanford.edu/chugl/"
@@ -19,7 +19,7 @@ sha256sums=("SKIP")
 pkgver() {
   cd $_name
   # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  git describe --long --tags | sed "s/\([^-]*-g\)/r\1/;s/-/./g" | sed "s/chugl.//g"
+  git describe --long --tags | sed "s/\([^-]*-g\)/r\1/;s/-/./g" | sed "s/^v//g"
 }
 
 build() {
