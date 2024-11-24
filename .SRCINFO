@@ -1,10 +1,9 @@
 pkgbase = plugdata-git
 	pkgdesc = Plugin wrapper around PureData with a new GUI made with JUCE, allowing patching in DAWs
-	pkgver = r8229.85d73a8cd
+	pkgver = r8921.2787bd825
 	pkgrel = 1
 	url = https://github.com/plugdata-team/plugdata/
 	arch = x86_64
-	arch = aarch64
 	groups = vst-plugins
 	groups = lv2-plugins
 	groups = vst3-plugins
@@ -23,9 +22,9 @@ pkgbase = plugdata-git
 	depends = libxcursor
 	depends = alsa-lib
 	depends = curl
-	conflicts = plugdata-bin
-	replaces = plugdata-bin
-	source = git+https://github.com/plugdata-team/plugdata/
+	provides = plugdata
+	conflicts = plugdata
+	source = git+https://github.com/plugdata-team/plugdata.git#branch=develop
 	source = plugdata.desktop
 	source = plugdata.png
 	sha512sums = SKIP
