@@ -11,6 +11,10 @@ license=('GPL-2.0-or-later OR MIT')
 depends=(jack libsndfile)
 groups=(pro-audio)
 makedepends=(git)
+optdepends=(
+  "chugl: ChucK Graphics Library"
+  "chugins-git: Officially Supported ChuGins (plug-ins for ChucK)"
+)
 source=("$_name::git+https://github.com/ccrma/chuck.git")
 provides=($_name)
 conflicts=($_name)
