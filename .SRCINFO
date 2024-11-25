@@ -8,6 +8,7 @@ pkgbase = chugl-git
 	groups = multimedia
 	license = MIT
 	makedepends = git
+	makedepends = cmake
 	depends = chuck
 	provides = chugl
 	conflicts = chugl
