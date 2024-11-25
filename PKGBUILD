@@ -4,7 +4,7 @@ pkgname=chugl-git
 _name=chugl
 pkgdesc="ChuGL => ChucK Graphics Library"
 pkgver=0.2.4.r0.g6c8e36e
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://chuck.stanford.edu/chugl/"
 license=(MIT)
@@ -29,6 +29,6 @@ build() {
 
 package() {
   cd $_name
-  install -d "$pkgdir/usr/local/lib/chuck/"
-  install -Dm755 src/ChuGL.chug "$pkgdir/usr/local/lib/chuck/ChuGL.chug"
+  install -d "$pkgdir/usr/lib/chuck/"
+  install -Dm755 src/ChuGL.chug "$pkgdir/usr/lib/chuck/ChuGL.chug"
 }
