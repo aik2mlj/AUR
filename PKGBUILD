@@ -29,6 +29,8 @@ build() {
 
 package() {
   cd $_name
+  install -d "$pkgdir/usr/share/doc/$_name"
+  cp -r examples "$pkgdir/usr/share/doc/$_name"
   install -d "$pkgdir/usr/lib/chuck/"
   install -Dm755 src/ChuGL.chug "$pkgdir/usr/lib/chuck/ChuGL.chug"
 }
