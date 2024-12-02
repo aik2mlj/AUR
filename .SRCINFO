@@ -1,7 +1,7 @@
 pkgbase = chugl-git
 	pkgdesc = ChuGL => ChucK Graphics Library
 	pkgver = 0.2.4.r0.g6c8e36e
-	pkgrel = 2
+	pkgrel = 1
 	url = https://chuck.stanford.edu/chugl/
 	arch = x86_64
 	groups = pro-audio

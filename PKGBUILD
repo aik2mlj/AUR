@@ -4,7 +4,7 @@ pkgname=chugl-git
 _name=chugl
 pkgdesc="ChuGL => ChucK Graphics Library"
 pkgver=0.2.4.r0.g6c8e36e
-pkgrel=2
+pkgrel=1
 arch=(x86_64)
 url="https://chuck.stanford.edu/chugl/"
 license=(MIT)
