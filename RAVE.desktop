@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=RAVE
+Comment=A variational autoencoder for fast and high-quality neural audio synthesis
+Exec=/usr/bin/RAVE
+Icon=RAVE
+Terminal=false
+StartupNotify=false
+Categories=Audio;Music;
