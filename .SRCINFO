@@ -1,6 +1,6 @@
 pkgbase = plugdata-bin
 	pkgdesc = Plugin wrapper around Pure Data with a new JUCE GUI, allowing patching in DAWs
-	pkgver = 0.9.1
+	pkgver = 0.9.2
 	pkgrel = 1
 	url = https://github.com/plugdata-team/plugdata
 	arch = x86_64
@@ -22,7 +22,7 @@ pkgbase = plugdata-bin
 	depends = curl
 	provides = plugdata
 	conflicts = plugdata
-	source = plugdata-bin-0.9.1.tar.gz::https://github.com/plugdata-team/plugdata/releases/download/v0.9.1/plugdata-Arch-x64.tar.gz
+	source = plugdata-bin-0.9.2.tar.gz::https://github.com/plugdata-team/plugdata/releases/download/v0.9.2/plugdata-Debian-x64.tar.xz
 	source = plugdata.desktop
 	source = plugdata.png
 	sha512sums = SKIP
