@@ -17,9 +17,9 @@ license=('GPL3')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/plugdata-team/plugdata/releases/download/v${pkgver}/plugdata-Debian-x64.tar.xz"
     "${_name}.desktop"
     "${_name}.png")
-sha256sums=('sha256:1088c2439e29ee4d38c474226b4b749d9909c0077cf8bcaf084d3cc086956f99'
-    '22cdffc139b070f9c1ada241068eef8d88c5b25fc16c4a2cd67582660c98e922'
-    '6e583e7cf952a3b5a587ff85567406c9f3cb0d3516494368b89bc7af6871f869')
+sha256sums=('1088c2439e29ee4d38c474226b4b749d9909c0077cf8bcaf084d3cc086956f99'
+            '22cdffc139b070f9c1ada241068eef8d88c5b25fc16c4a2cd67582660c98e922'
+            '6e583e7cf952a3b5a587ff85567406c9f3cb0d3516494368b89bc7af6871f869')
 
 package() {
     # Desktop entry & pixmaps
