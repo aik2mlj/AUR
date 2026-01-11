@@ -1,13 +1,13 @@
 pkgbase = basalt-bin
 	pkgdesc = TUI Application to manage Obsidian vaults and notes directly from the terminal
-	pkgver = 0.10.4
+	pkgver = 0.11.2
 	pkgrel = 1
 	url = https://github.com/erikjuhani/basalt
 	arch = x86_64
 	license = MIT
 	provides = basalt
 	conflicts = basalt
-	source = https://github.com/erikjuhani/basalt/releases/download/basalt%2Fv0.10.4/basalt-0.10.4-x86_64-unknown-linux-gnu.tar.gz
-	sha256sums = 64d8fe9c6eb4c2fd353afd4bd909eb3cbbf6eafa4c513c0f861e972ee8f5e7aa
+	source = https://github.com/erikjuhani/basalt/releases/download/basalt%2Fv0.11.2/basalt-0.11.2-x86_64-unknown-linux-gnu.tar.gz
+	sha256sums = 2e2c4e2c6704b4d0b05c9b469de92d3633788fc658e4375aef1bb5ca314313e2
 
 pkgname = basalt-bin
