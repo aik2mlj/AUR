@@ -19,7 +19,7 @@ provides=($_name)
 conflicts=($_name)
 
 source=("$url/releases/download/v$pkgver/$_name-v$pkgver-x86_64-unknown-linux-gnu.tar.gz")
-sha256sums=('6f8b13e5bbd226a9bf89b319d9cb02bd68e2008487cce83cb933e2ed40be2505')
+sha256sums=('23c831b3883f294e2d77ca6d5d6d450c75371deb167118e8d6647b7f35bb7027')
 
 package() {
     # install binary

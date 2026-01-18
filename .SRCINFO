@@ -13,6 +13,6 @@ pkgbase = canvas-downloader-bin
 	provides = canvas-downloader
 	conflicts = canvas-downloader
 	source = https://github.com/aik2mlj/canvas-downloader/releases/download/v0.4.0/canvas-downloader-v0.4.0-x86_64-unknown-linux-gnu.tar.gz
-	sha256sums = 6f8b13e5bbd226a9bf89b319d9cb02bd68e2008487cce83cb933e2ed40be2505
+	sha256sums = 23c831b3883f294e2d77ca6d5d6d450c75371deb167118e8d6647b7f35bb7027
 
 pkgname = canvas-downloader-bin
