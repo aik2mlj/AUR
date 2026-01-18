@@ -1,5 +1,5 @@
 pkgbase = canvas-downloader-bin
-	pkgdesc = Download and organize all your Canvas course materials 📚
+	pkgdesc = Download and organize all your course materials from Canvas LMS 📚
 	pkgver = 0.4.0
 	pkgrel = 2
 	url = https://github.com/aik2mlj/canvas-downloader
