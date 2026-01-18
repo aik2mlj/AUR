@@ -3,7 +3,7 @@
 pkgname=canvas-downloader
 pkgver=0.4.0
 pkgrel=1
-pkgdesc='Download and organize all your Canvas course materials 📚'
+pkgdesc='Download and organize all your course materials from Canvas LMS 📚'
 arch=('x86_64')
 url='https://github.com/aik2mlj/canvas-downloader'
 license=('GPL-3.0-or-later')
