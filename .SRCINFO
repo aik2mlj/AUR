@@ -1,7 +1,7 @@
 pkgbase = canvas-downloader-bin
 	pkgdesc = Download and organize all your Canvas course materials 📚
 	pkgver = 0.4.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/aik2mlj/canvas-downloader
 	arch = x86_64
 	license = GPL-3.0-or-later
@@ -12,7 +12,7 @@ pkgbase = canvas-downloader-bin
 	optdepends = fish: fish completions
 	provides = canvas-downloader
 	conflicts = canvas-downloader
-	source = https://github.com/aik2mlj/canvas-downloader/releases/download/v0.4.0/canvas-downloader-x86_64-unknown-linux-gnu-v0.4.0
-	sha256sums = 9a1af94aa2724302f292df3f9dacd8782d51706d0453c5ddd7d6446d43dba0f0
+	source = https://github.com/aik2mlj/canvas-downloader/releases/download/v0.4.0/canvas-downloader-v0.4.0-x86_64-unknown-linux-gnu.tar.gz
+	sha256sums = 6f8b13e5bbd226a9bf89b319d9cb02bd68e2008487cce83cb933e2ed40be2505
 
 pkgname = canvas-downloader-bin
