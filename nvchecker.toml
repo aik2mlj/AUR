@@ -8,10 +8,12 @@ newver = "new_ver.json"
 
 # basalt-bin: TUI for Obsidian vaults
 # https://github.com/erikjuhani/basalt
+# Tags are basalt/vX.Y.Z (ignore basalt-widgets/vX.Y.Z)
 [basalt-bin]
 source = "github"
 github = "erikjuhani/basalt"
 use_max_tag = true
+include_regex = "basalt/v.*"
 prefix = "basalt/v"
 
 # canvas-downloader: Download Canvas LMS materials (source build)
@@ -31,11 +33,12 @@ prefix = "v"
 
 # mini-audicle: IDE for ChucK
 # https://github.com/ccrma/miniAudicle
-# Tags are in format: chuck-X.Y.Z.W
+# Tags are in format: chuck-X.Y.Z.W (old tags without prefix should be ignored)
 [mini-audicle]
 source = "github"
 github = "ccrma/miniAudicle"
 use_max_tag = true
+include_regex = "chuck-.*"
 prefix = "chuck-"
 
 # otf-nasin-nanpa: Sitelen pona font
