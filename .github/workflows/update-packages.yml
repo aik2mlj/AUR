@@ -19,7 +19,7 @@ on:
         type: string
 
 jobs:
-  check-updates:
+  check-updates: 
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.check.outputs.matrix }}
