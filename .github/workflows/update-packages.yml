@@ -190,6 +190,8 @@ jobs:
           git commit -m "${{ matrix.package }}: update to ${{ matrix.new_version }}"
 
       - name: Push to AUR using git subtree
+        env:
+          GIT_SSH_COMMAND: "ssh -i ~/.ssh/aur -o UserKnownHostsFile=~/.ssh/known_hosts"
         run: |
           PKG="${{ matrix.package }}"
           VER="${{ matrix.new_version }}"
