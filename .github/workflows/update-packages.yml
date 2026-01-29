@@ -128,15 +128,26 @@ jobs:
       - name: Set up SSH for AUR
         run: |
           mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
           echo "${{ secrets.AUR_SSH_PRIVATE_KEY }}" > ~/.ssh/aur
           chmod 600 ~/.ssh/aur
-          ssh-keyscan -t ed25519,rsa aur.archlinux.org >> ~/.ssh/known_hosts 2>/dev/null
+
+          # Fetch host key (retry a few times if needed)
+          for i in 1 2 3; do
+            ssh-keyscan -t ed25519 aur.archlinux.org >> ~/.ssh/known_hosts 2>/dev/null && break
+            sleep 2
+          done
+          chmod 644 ~/.ssh/known_hosts
+
           cat >> ~/.ssh/config << 'SSHEOF'
           Host aur.archlinux.org
             IdentityFile ~/.ssh/aur
             User aur
-            StrictHostKeyChecking accept-new
           SSHEOF
+          chmod 600 ~/.ssh/config
+
+          # Verify SSH setup
+          cat ~/.ssh/known_hosts
 
       - name: Update PKGBUILD
         working-directory: ${{ matrix.package }}
