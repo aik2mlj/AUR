@@ -16,6 +16,7 @@ My collection of [Arch User Repository (AUR)](https://aur.archlinux.org/) packag
 | [otf-nasin-nanpa](https://aur.archlinux.org/packages/otf-nasin-nanpa)                   | Sitelen pona (toki pona) font             | Source |
 | [plugdata-bin](https://aur.archlinux.org/packages/plugdata-bin)                         | Pure Data as a plugin                     | Binary |
 | [plugdata-git](https://aur.archlinux.org/packages/plugdata-git)                         | Pure Data as a plugin                     | Git    |
+| [rave-vst](https://aur.archlinux.org/packages/rave-vst)                                 | Neural audio synthesis VST plugin         | Manual |
 | [sparta-plugins-bin](https://aur.archlinux.org/packages/sparta-plugins-bin)             | Spatial audio VST/LV2 plugins             | Binary |
 
 ## Repository Structure
@@ -43,7 +44,7 @@ A GitHub Actions workflow runs daily to check for new upstream releases using [n
 5. Pushes to AUR via `git subtree push`
 6. Commits changes back to this repository
 
-**Note:** `-git` packages are excluded from automatic updates as they use `pkgver()` functions.
+**Note:** `-git` packages are excluded from automatic updates as they use `pkgver()` functions. Packages marked as "Manual" require manual source download due to license restrictions.
 
 ### Manual Workflow Trigger
 
