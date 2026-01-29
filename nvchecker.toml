@@ -1,0 +1,65 @@
+# nvchecker configuration for AUR packages
+# Run with: nvchecker -c nvchecker.toml
+# Compare with: nvcmp -c nvchecker.toml
+
+[__config__]
+oldver = "old_ver.json"
+newver = "new_ver.json"
+
+# basalt-bin: TUI for Obsidian vaults
+# https://github.com/erikjuhani/basalt
+[basalt-bin]
+source = "github"
+github = "erikjuhani/basalt"
+use_max_tag = true
+prefix = "basalt/v"
+
+# canvas-downloader: Download Canvas LMS materials (source build)
+# https://github.com/aik2mlj/canvas-downloader
+[canvas-downloader]
+source = "github"
+github = "aik2mlj/canvas-downloader"
+use_latest_release = true
+prefix = "v"
+
+# canvas-downloader-bin: Same as above (binary)
+[canvas-downloader-bin]
+source = "github"
+github = "aik2mlj/canvas-downloader"
+use_latest_release = true
+prefix = "v"
+
+# mini-audicle: IDE for ChucK
+# https://github.com/ccrma/miniAudicle
+# Tags are in format: chuck-X.Y.Z.W
+[mini-audicle]
+source = "github"
+github = "ccrma/miniAudicle"
+use_max_tag = true
+prefix = "chuck-"
+
+# otf-nasin-nanpa: Sitelen pona font
+# https://github.com/ETBCOR/nasin-nanpa
+# Releases tagged as nX.Y.Z
+[otf-nasin-nanpa]
+source = "github"
+github = "ETBCOR/nasin-nanpa"
+use_latest_release = true
+prefix = "n"
+
+# plugdata-bin: Pure Data wrapper plugin
+# https://github.com/plugdata-team/plugdata
+[plugdata-bin]
+source = "github"
+github = "plugdata-team/plugdata"
+use_latest_release = true
+prefix = "v"
+
+# sparta-plugins-bin: Spatial audio plugins
+# https://github.com/leomccormack/SPARTA
+# Note: This package has a special version format with date prefix
+[sparta-plugins-bin]
+source = "github"
+github = "leomccormack/SPARTA"
+use_latest_release = true
+prefix = "v"

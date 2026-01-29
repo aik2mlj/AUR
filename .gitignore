@@ -1,0 +1,62 @@
+# Ignore all files by default
+*
+!*/
+
+# Allow workflow and config files
+!.github/
+!.github/**
+!nvchecker.toml
+!old_ver.json
+!scripts/
+!scripts/**
+
+# Allow essential files for PKGBUILD
+!.gitignore
+!PKGBUILD
+!.SRCINFO
+!*.patch
+!*.diff
+!*.install
+!LICENSE
+!README*
+!CHANGELOG*
+!*.desktop
+!*.service
+
+# Allow image files used in the package
+!*.png
+
+# Allow specific source files or assets needed for the package
+!assets/
+!scripts/
+
+# nvchecker generated file (we track old_ver.json instead)
+new_ver.json
+
+# Ignore temporary files and build artifacts
+*.tar.*
+*.zip
+*.gz
+*.bz2
+*.xz
+*.zst
+*.7z
+*.iso
+*.img
+*.o
+*.so
+*.a
+*.out
+*.bin
+
+# Ignore backup and swap files
+*~
+*.swp
+*.swo
+*.bak
+*.old
+
+# Ignore build directories
+pkg/
+src/
+*.log
