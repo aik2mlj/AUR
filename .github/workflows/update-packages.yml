@@ -188,6 +188,9 @@ jobs:
           echo "Regenerating .SRCINFO..."
           sudo -u builder makepkg --printsrcinfo > .SRCINFO
 
+          echo "Dry-running makepkg to validate build..."
+          sudo -u builder makepkg --syncdeps --noconfirm --nobuild
+
           echo "PKGBUILD updated successfully"
 
       - name: Commit changes
