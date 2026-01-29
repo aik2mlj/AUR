@@ -127,27 +127,27 @@ jobs:
 
       - name: Set up SSH for AUR
         run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          echo "${{ secrets.AUR_SSH_PRIVATE_KEY }}" > ~/.ssh/aur
-          chmod 600 ~/.ssh/aur
+          set -euo pipefail
 
-          # Fetch host key (retry a few times if needed)
-          for i in 1 2 3; do
-            ssh-keyscan -t ed25519 aur.archlinux.org >> ~/.ssh/known_hosts 2>/dev/null && break
-            sleep 2
-          done
-          chmod 644 ~/.ssh/known_hosts
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
 
-          cat >> ~/.ssh/config << 'SSHEOF'
+          echo "${{ secrets.AUR_SSH_PRIVATE_KEY }}" > "$HOME/.ssh/aur"
+          chmod 600 "$HOME/.ssh/aur"
+
+          # Robust known_hosts: scan both key types and hash hostnames
+          ssh-keyscan -H -t ed25519,rsa aur.archlinux.org >> "$HOME/.ssh/known_hosts" 2>/dev/null
+          chmod 644 "$HOME/.ssh/known_hosts"
+
+          # Optional config (not strictly needed when using GIT_SSH_COMMAND)
+          cat >> "$HOME/.ssh/config" <<'SSHEOF'
           Host aur.archlinux.org
-            IdentityFile ~/.ssh/aur
             User aur
+            IdentityFile ~/.ssh/aur
+            IdentitiesOnly yes
+            StrictHostKeyChecking yes
           SSHEOF
-          chmod 600 ~/.ssh/config
-
-          # Verify SSH setup
-          cat ~/.ssh/known_hosts
+          chmod 600 "$HOME/.ssh/config"
 
       - name: Update PKGBUILD
         working-directory: ${{ matrix.package }}
@@ -191,7 +191,7 @@ jobs:
 
       - name: Push to AUR using git subtree
         env:
-          GIT_SSH_COMMAND: "ssh -i ~/.ssh/aur -o UserKnownHostsFile=~/.ssh/known_hosts"
+          GIT_SSH_COMMAND: "ssh -i $HOME/.ssh/aur -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts"
         run: |
           PKG="${{ matrix.package }}"
           VER="${{ matrix.new_version }}"
