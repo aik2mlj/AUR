@@ -1,9 +1,42 @@
 {
-  "basalt-bin": "0.12.0",
-  "canvas-downloader": "0.4.0",
-  "canvas-downloader-bin": "0.4.0",
-  "mini-audicle": "1.5.5.7",
-  "otf-nasin-nanpa": "4.0.2",
-  "plugdata-bin": "0.9.2",
-  "sparta-plugins-bin": "1.8.2"
+  "version": 2,
+  "data": {
+    "basalt-bin": {
+      "version": "0.12.1",
+      "gitref": "refs/tags/basalt/v0.12.1",
+      "revision": "ed5a19cd7bea626cce263c8e01cec7f2f57d0775",
+      "url": "https://github.com/erikjuhani/basalt/releases/tag/basalt/v0.12.1"
+    },
+    "canvas-downloader": {
+      "version": "0.4.0",
+      "gitref": "refs/tags/v0.4.0",
+      "url": "https://github.com/aik2mlj/canvas-downloader/releases/tag/v0.4.0"
+    },
+    "canvas-downloader-bin": {
+      "version": "0.4.0",
+      "gitref": "refs/tags/v0.4.0",
+      "url": "https://github.com/aik2mlj/canvas-downloader/releases/tag/v0.4.0"
+    },
+    "mini-audicle": {
+      "version": "1.5.5.7",
+      "gitref": "refs/tags/chuck-1.5.5.7",
+      "revision": "8ac336a032398a709b556aa91ebf0720bb820b75",
+      "url": "https://github.com/ccrma/miniAudicle/releases/tag/chuck-1.5.5.7"
+    },
+    "otf-nasin-nanpa": {
+      "version": "4.0.2",
+      "gitref": "refs/tags/n4.0.2",
+      "url": "https://github.com/etbcor/nasin-nanpa/releases/tag/n4.0.2"
+    },
+    "plugdata-bin": {
+      "version": "0.9.2",
+      "gitref": "refs/tags/v0.9.2",
+      "url": "https://github.com/plugdata-team/plugdata/releases/tag/v0.9.2"
+    },
+    "sparta-plugins-bin": {
+      "version": "1.8.2",
+      "gitref": "refs/tags/v1.8.2",
+      "url": "https://github.com/leomccormack/SPARTA/releases/tag/v1.8.2"
+    }
+  }
 }
