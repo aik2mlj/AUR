@@ -2,7 +2,7 @@
 
 pkgname=emailbook-rs-bin
 _name=emailbook
-pkgver=0.3.0
+pkgver=0.4.0
 pkgrel=1
 pkgdesc='A minimalistic address book for e-mails only'
 arch=('x86_64')
@@ -18,7 +18,7 @@ provides=($_name)
 conflicts=($_name)
 
 source=("$url/releases/download/v$pkgver/$_name-v$pkgver-x86_64-unknown-linux-gnu.tar.gz")
-sha256sums=('20d43d9185942227858d658362ea929c68ddfe71a680a22a60a4ee2e334b064c')
+sha256sums=('1e86db37c93a373004a488cd3c6dce45b7d1c081eca75e0c255ee88af287f3fe')
 
 package() {
     # install binary
