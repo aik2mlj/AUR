@@ -1,0 +1,16 @@
+pkgbase = emailbook-rs-bin
+	pkgdesc = A minimalistic address book for e-mails only
+	pkgver = 0.3.0
+	pkgrel = 1
+	url = https://github.com/aik2mlj/emailbook-rs
+	arch = x86_64
+	license = MIT
+	optdepends = bash-completion: bash completions
+	optdepends = zsh: zsh completions
+	optdepends = fish: fish completions
+	provides = emailbook
+	conflicts = emailbook
+	source = https://github.com/aik2mlj/emailbook-rs/releases/download/v0.3.0/emailbook-v0.3.0-x86_64-unknown-linux-gnu.tar.gz
+	sha256sums = 20d43d9185942227858d658362ea929c68ddfe71a680a22a60a4ee2e334b064c
+
+pkgname = emailbook-rs-bin
