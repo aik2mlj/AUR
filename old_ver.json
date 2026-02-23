@@ -18,9 +18,9 @@
       "url": "https://github.com/aik2mlj/canvas-downloader/releases/tag/v0.4.0"
     },
     "emailbook-rs-bin": {
-      "version": "0.3.0",
-      "gitref": "refs/tags/v0.3.0",
-      "url": "https://github.com/aik2mlj/emailbook-rs/releases/tag/v0.3.0"
+      "version": "0.4.0",
+      "gitref": "refs/tags/v0.4.0",
+      "url": "https://github.com/aik2mlj/emailbook-rs/releases/tag/v0.4.0"
     },
     "mini-audicle": {
       "version": "1.5.5.7",
