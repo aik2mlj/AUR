@@ -16,6 +16,14 @@ use_max_tag = true
 include_regex = "basalt/v.*"
 prefix = "basalt/v"
 
+# emailbook-rs-bin: Minimalistic address book for e-mails
+# https://github.com/aik2mlj/emailbook-rs
+[emailbook-rs-bin]
+source = "github"
+github = "aik2mlj/emailbook-rs"
+use_latest_release = true
+prefix = "v"
+
 # canvas-downloader: Download Canvas LMS materials (source build)
 # https://github.com/aik2mlj/canvas-downloader
 [canvas-downloader]
