@@ -11,6 +11,7 @@ My collection of [Arch User Repository (AUR)](https://aur.archlinux.org/) packag
 | [canvas-downloader-bin](https://aur.archlinux.org/packages/canvas-downloader-bin)       | Download Canvas LMS course materials      | Binary |
 | [chuck-git](https://aur.archlinux.org/packages/chuck-git)                               | Strongly-timed audio programming language | Git    |
 | [chugl-git](https://aur.archlinux.org/packages/chugl-git)                               | ChucK graphics library                    | Git    |
+| [emailbook-rs-bin](https://aur.archlinux.org/packages/emailbook-rs-bin)                 | Minimalistic address book for e-mails     | Binary |
 | [mini-audicle](https://aur.archlinux.org/packages/mini-audicle)                         | IDE for ChucK                             | Source |
 | [otf-librebaskerville-git](https://aur.archlinux.org/packages/otf-librebaskerville-git) | Libre Baskerville font                    | Git    |
 | [otf-nasin-nanpa](https://aur.archlinux.org/packages/otf-nasin-nanpa)                   | Sitelen pona (toki pona) font             | Source |
