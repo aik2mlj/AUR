@@ -65,6 +65,8 @@ source = "github"
 github = "plugdata-team/plugdata"
 use_latest_release = true
 prefix = "v"
+from_pattern = "^(.+)-(\\d+)$"
+to_pattern = "\\1_\\2"
 
 # sparta-plugins-bin: Spatial audio plugins
 # https://github.com/leomccormack/SPARTA
