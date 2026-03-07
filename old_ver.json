@@ -34,9 +34,9 @@
       "url": "https://github.com/etbcor/nasin-nanpa/releases/tag/n4.0.2"
     },
     "plugdata-bin": {
-      "version": "0.9.3_1",
-      "gitref": "refs/tags/v0.9.3-1",
-      "url": "https://github.com/plugdata-team/plugdata/releases/tag/v0.9.3-1"
+      "version": "0.9.3_2",
+      "gitref": "refs/tags/v0.9.3-2",
+      "url": "https://github.com/plugdata-team/plugdata/releases/tag/v0.9.3-2"
     },
     "sparta-plugins-bin": {
       "version": "1.8.2",
