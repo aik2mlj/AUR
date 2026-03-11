@@ -2,10 +2,10 @@
   "version": 2,
   "data": {
     "basalt-bin": {
-      "version": "0.12.2",
-      "gitref": "refs/tags/basalt/v0.12.2",
-      "revision": "119b1f86e4ae1c2809873534c9afd5eacc77a17a",
-      "url": "https://github.com/erikjuhani/basalt/releases/tag/basalt/v0.12.2"
+      "version": "0.12.3",
+      "gitref": "refs/tags/basalt/v0.12.3",
+      "revision": "d0e075d92a3b2989a96837d909887d02077a1b32",
+      "url": "https://github.com/erikjuhani/basalt/releases/tag/basalt/v0.12.3"
     },
     "canvas-downloader": {
       "version": "0.4.0",
