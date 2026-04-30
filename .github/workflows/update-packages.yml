@@ -126,6 +126,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Download new_ver.json
+        uses: actions/download-artifact@v4
+        with:
+          name: version-files
+          path: .
+
       - name: Configure git
         run: |
           git config --global user.name "${{ secrets.AUR_USERNAME }}"
@@ -204,50 +210,59 @@ jobs:
           GIT_SSH_COMMAND: "ssh -i $HOME/.ssh/aur -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts"
         run: |
           PKG="${{ matrix.package }}"
-          VER="${{ matrix.new_version }}"
+          AUR_REMOTE="ssh://aur@aur.archlinux.org/${PKG}.git"
 
-          echo "Pushing $PKG to AUR..."
+          # Compute the commit subtree push would produce for this package.
+          SPLIT=$(git subtree split --prefix="$PKG")
 
-          # Use git subtree push (same as aurpublish does)
-          git subtree push --prefix="$PKG" "ssh://aur@aur.archlinux.org/${PKG}.git" master
-
-          echo "Successfully pushed $PKG to AUR"
-
-      - name: Push to GitHub
-        run: |
-          git pull --rebase origin main
-          git push origin HEAD:main
-
-  update-version-tracking:
-    needs: [check-updates, update-package]
-    if: needs.check-updates.outputs.has_updates == 'true' && (github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true')
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: main
-
-      - name: Pull latest changes
-        run: git pull origin main
-
-      - name: Download version file
-        uses: actions/download-artifact@v4
-        with:
-          name: version-files
-          path: .
-
-      - name: Update old_ver.json
-        run: |
-          git config user.name "${{ secrets.AUR_USERNAME }}"
-          git config user.email "${{ secrets.AUR_EMAIL }}"
-
-          cp new_ver.json old_ver.json
-          git add old_ver.json
-
-          if ! git diff --staged --quiet; then
-            git commit -m "chore: update version tracking"
-            git push origin main
+          # Fetch AUR master so we can reason about ancestry locally.
+          # Tolerate a missing/empty remote (first-ever push to a new AUR repo).
+          AUR_HEAD=""
+          if git fetch "$AUR_REMOTE" master 2>/dev/null; then
+            AUR_HEAD=$(git rev-parse FETCH_HEAD 2>/dev/null || true)
           fi
+
+          if [[ -z "$AUR_HEAD" ]]; then
+            echo "AUR has no master yet — pushing $SPLIT as initial"
+            git push "$AUR_REMOTE" "$SPLIT:master"
+          elif [[ "$AUR_HEAD" == "$SPLIT" ]]; then
+            echo "AUR already at $SPLIT — skipping push (idempotent)"
+          elif git merge-base --is-ancestor "$AUR_HEAD" "$SPLIT"; then
+            echo "Pushing $PKG to AUR ($AUR_HEAD -> $SPLIT)..."
+            git push "$AUR_REMOTE" "$SPLIT:master"
+            echo "Successfully pushed $PKG to AUR"
+          else
+            echo "ERROR: AUR master ($AUR_HEAD) is not an ancestor of local split ($SPLIT)." >&2
+            echo "AUR has diverged from this repo. Manual reconciliation needed:" >&2
+            echo "  git subtree pull --prefix=$PKG $AUR_REMOTE master" >&2
+            echo "  git push origin main" >&2
+            echo "Then re-run this workflow." >&2
+            exit 1
+          fi
+
+      - name: Track new version and push to GitHub
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          PKG="${{ matrix.package }}"
+
+          # Pull commits from prior matrix entries
+          git pull --rebase origin main
+
+          # Merge this package's entry from new_ver.json into old_ver.json.
+          # Failed matrix entries skip this step, so their old_ver.json
+          # entries stay stale and correctly retry on the next run.
+          NEW_ENTRY=$(jq -c --arg pkg "$PKG" '.data[$pkg] // empty' new_ver.json)
+          if [[ -z "$NEW_ENTRY" ]]; then
+            echo "ERROR: $PKG not found in new_ver.json — refusing to overwrite tracking with null" >&2
+            exit 1
+          fi
+          jq --arg pkg "$PKG" --argjson entry "$NEW_ENTRY" \
+            '.data[$pkg] = $entry' old_ver.json > old_ver.json.tmp
+          mv old_ver.json.tmp old_ver.json
+
+          git add old_ver.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: track $PKG ${{ matrix.new_version }}"
+          fi
+
+          git push origin HEAD:main

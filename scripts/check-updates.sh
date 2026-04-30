@@ -64,10 +64,20 @@ while IFS= read -r line; do
 done <<< "$UPDATES"
 
 if [[ "$DRY_RUN" == "false" && ${#UPDATED_PACKAGES[@]} -gt 0 ]]; then
-    # Update old_ver.json with new versions
+    # Merge only successfully-updated packages into old_ver.json.
+    # Failed packages keep their stale entries so nvcmp re-detects them next run.
     echo ""
     echo "Updating version tracking file..."
-    cp new_ver.json old_ver.json
+    for PKG in "${UPDATED_PACKAGES[@]}"; do
+        NEW_ENTRY=$(jq -c --arg pkg "$PKG" '.data[$pkg] // empty' new_ver.json)
+        if [[ -z "$NEW_ENTRY" ]]; then
+            echo "Warning: $PKG not in new_ver.json — leaving tracking unchanged" >&2
+            continue
+        fi
+        jq --arg pkg "$PKG" --argjson entry "$NEW_ENTRY" \
+            '.data[$pkg] = $entry' old_ver.json > old_ver.json.tmp
+        mv old_ver.json.tmp old_ver.json
+    done
 
     echo ""
     echo "Summary: Updated ${#UPDATED_PACKAGES[@]} package(s):"
