@@ -8,9 +8,10 @@
       "url": "https://github.com/erikjuhani/basalt/releases/tag/basalt/v0.12.7"
     },
     "canvas-downloader": {
-      "version": "0.4.1",
-      "gitref": "refs/tags/v0.4.1",
-      "url": "https://github.com/aik2mlj/canvas-downloader/releases/tag/v0.4.1"
+      "version": "0.4.2",
+      "gitref": "refs/tags/v0.4.2",
+      "url": "https://github.com/aik2mlj/canvas-downloader/releases/tag/v0.4.2",
+      "creation_time": "2026-08-20T08:16:29Z"
     },
     "canvas-downloader-bin": {
       "version": "0.4.1",
